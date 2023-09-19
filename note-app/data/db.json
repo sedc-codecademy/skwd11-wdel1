@@ -1,0 +1,17 @@
+[
+  {
+    "title": "First Post",
+    "body": "Random Note Text",
+    "id": "c077b5ae-e355-4dd5-aba5-8670024ccba1"
+  },
+  {
+    "id": "5ace8557-1eb2-4cb3-a30e-0fbb66a94bd8",
+    "title": "Second Note",
+    "body": "random text again"
+  },
+  {
+    "id": "2ed47fbb-367f-41c0-aab3-9f3a0c8a378d",
+    "title": "Forth Note",
+    "body": "updated from postman"
+  }
+]
