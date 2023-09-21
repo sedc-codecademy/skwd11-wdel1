@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "d360cc80-08a2-4e21-98e8-e279b697a3cd",
+		"name": "Thought Exchange - Posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26024692",
+		"_collection_link": "https://cloudy-meteor-558329.postman.co/workspace/gen11-elective~9b3f7232-cf1f-49da-8022-412a311e23e6/collection/15639951-d360cc80-08a2-4e21-98e8-e279b697a3cd?action=share&creator=26024692&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get all posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get post by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "650c8c2f093d9a0e36f864de"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Delete Post\",\r\n    \"body\": \"Lorem Ipsum Sin Dolor\",\r\n    \"author\": \"650c877aefb3389f77cff8b8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Second Post\",\r\n    \"body\": \"EDITED AGAIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "650c8c2f093d9a0e36f864de"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get post by id Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "650c8dce8616bf00728d6f12"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
