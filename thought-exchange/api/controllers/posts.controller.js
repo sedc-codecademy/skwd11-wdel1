@@ -36,7 +36,28 @@ export class PostsController {
     }
   }
   // 4. Update a post
+  static async updatePost(req, res) {
+    try {
+      const postId = req.params.id;
+      const updateData = req.body;
+
+      await PostsService.updatePost(postId, updateData);
+
+      return res.sendStatus(204);
+    } catch (error) {
+      return res.status(400).send({ msg: error });
+    }
+  }
   // 5. Delete a post
+  static async deletePost(req, res) {
+    try {
+      await PostsService.deletePost(req.params.id);
+
+      return res.sendStatus(204);
+    } catch (error) {
+      return res.status(404).send({ msg: error });
+    }
+  }
   // 6. Like a post
   // 7. Dislike a post
 }

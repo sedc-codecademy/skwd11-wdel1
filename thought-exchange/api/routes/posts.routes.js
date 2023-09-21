@@ -10,6 +10,8 @@ postsRouter.post("/", PostsController.createPost);
 // 3. Get post by id - `GET /posts/:postId`
 postsRouter.get("/:id", PostsController.getPostById);
 // 4. Update a post - `PATCH /posts/:postId`
+postsRouter.patch("/:id", PostsController.updatePost);
 // 5. Delete a post - `DELETE /posts/:postId`
+postsRouter.delete("/:id", PostsController.deletePost);
 // 6. Like a post - `POST /posts/:postId/like`
 // 7. Dislike a post `POST /posts/:postId/dislike`
