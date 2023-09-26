@@ -14,7 +14,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n    \"username\": \"thirduser\",\r\n    \"email\": \"third@gmail.com\",\r\n    \"password\": \"test1234\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

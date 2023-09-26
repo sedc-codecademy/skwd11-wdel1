@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "3a3c67ec-c050-4b39-9046-2e5ac1b6a6ac",
+		"name": "Though Exchange - Comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26024692",
+		"_collection_link": "https://cloudy-meteor-558329.postman.co/workspace/gen11-elective~9b3f7232-cf1f-49da-8022-412a311e23e6/collection/15639951-3a3c67ec-c050-4b39-9046-2e5ac1b6a6ac?action=share&creator=26024692&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get All Comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"body\": \"This is the best post i've read\",\r\n    \"post\": \"65131762a2db4c8548c29537\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTEzMDI5NDE1NmIyZDQ3NGY4MjQ5YzAiLCJpYXQiOjE2OTU3NTMxMTIsImV4cCI6MTY5NTc1NDkxMn0.q74ZLCLKrYir0AWgxYXPDpT96UhhQ3HTHuwn9Ku-ZJk",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
