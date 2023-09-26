@@ -1,3 +1,4 @@
+import { createAccessToken } from "../const/jwt.const.js";
 import { AuthService } from "../services/auth.service.js";
 
 export class AuthController {
@@ -21,7 +22,9 @@ export class AuthController {
 
       const user = await AuthService.loginUser(email, password);
 
-      res.json(user);
+      const accessToken = createAccessToken(user._id);
+
+      res.json({ user, token: accessToken });
     } catch (error) {
       console.log(error);
       res.status(401).send({ msg: "Invalid Credentials" });

@@ -1,4 +1,5 @@
 import { User } from "../models/user.model.js";
+import bcrypt from "bcryptjs";
 
 export class AuthService {
   // 1. Register User
@@ -13,7 +14,7 @@ export class AuthService {
 
     if (!user) throw "Invalid Credentails";
 
-    const isPasswordValid = password === user.password;
+    const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) throw "Invalid Credentials";
 

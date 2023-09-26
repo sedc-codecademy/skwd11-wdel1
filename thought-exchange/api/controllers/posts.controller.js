@@ -4,6 +4,8 @@ export class PostsController {
   // 1. Get all posts
   static async getAllPosts(req, res) {
     try {
+      console.log("user send from auth middleware", req.user);
+
       const posts = await PostsService.getAllPosts();
 
       return res.json(posts);
@@ -15,8 +17,9 @@ export class PostsController {
   static async createPost(req, res) {
     try {
       const postData = req.body;
+      const user = req.user;
 
-      const createdPost = await PostsService.createPost(postData);
+      const createdPost = await PostsService.createPost(user, postData);
 
       return res.status(201).send(createdPost);
     } catch (error) {
@@ -40,8 +43,9 @@ export class PostsController {
     try {
       const postId = req.params.id;
       const updateData = req.body;
+      const user = req.user;
 
-      await PostsService.updatePost(postId, updateData);
+      await PostsService.updatePost(user, postId, updateData);
 
       return res.sendStatus(204);
     } catch (error) {
@@ -51,7 +55,7 @@ export class PostsController {
   // 5. Delete a post
   static async deletePost(req, res) {
     try {
-      await PostsService.deletePost(req.params.id);
+      await PostsService.deletePost(req.user, req.params.id);
 
       return res.sendStatus(204);
     } catch (error) {
@@ -59,5 +63,27 @@ export class PostsController {
     }
   }
   // 6. Like a post
+  static async likePost(req, res) {
+    try {
+      const postId = req.params.id;
+
+      const likeCount = await PostsService.likePost(postId);
+
+      return res.status(200).json(likeCount);
+    } catch (error) {
+      return res.status(400).send({ msg: error });
+    }
+  }
   // 7. Dislike a post
+  static async dislikePost(req, res) {
+    try {
+      const postId = req.params.id;
+
+      const dislikeCount = await PostsService.dislikePost(postId);
+
+      return res.status(200).json(dislikeCount);
+    } catch (error) {
+      return res.status(400).send({ msg: error });
+    }
+  }
 }
