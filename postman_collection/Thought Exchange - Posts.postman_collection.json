@@ -11,7 +11,14 @@
 			"name": "Get all posts",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTEzMDI5NDE1NmIyZDQ3NGY4MjQ5YzAiLCJpYXQiOjE2OTU3NDgyNzEsImV4cCI6MTY5NTc1MDA3MX0.HN31daQZGBZ1uF5rgsB-Ofukm1FMwVgyo3SdJlkx5H8",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"url": {
 					"raw": "{{url}}/posts",
 					"host": [
@@ -41,7 +48,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "650c8c2f093d9a0e36f864de"
+							"value": "65131762a2db4c8548c29537"
 						}
 					]
 				}
@@ -55,7 +62,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Delete Post\",\r\n    \"body\": \"Lorem Ipsum Sin Dolor\",\r\n    \"author\": \"650c877aefb3389f77cff8b8\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Second Post\",\r\n    \"body\": \"Lorem Ipsum Sin Dolor\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -81,7 +88,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Second Post\",\r\n    \"body\": \"EDITED AGAIN\"\r\n}",
+					"raw": "{\r\n    \"title\": \"FIRST USER FOREVER\",\r\n    \"body\": \"EDITED AGAIN\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -100,6 +107,31 @@
 					"variable": [
 						{
 							"key": "id",
+							"value": "65131762a2db4c8548c29537"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like Post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/:id/like",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "id",
 							"value": "650c8c2f093d9a0e36f864de"
 						}
 					]
@@ -108,7 +140,41 @@
 			"response": []
 		},
 		{
-			"name": "Get post by id Copy",
+			"name": "Dislike Post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/:id/dislike",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id",
+						"dislike"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "650c8c2f093d9a0e36f864de"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -124,12 +190,42 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "650c8dce8616bf00728d6f12"
+							"value": "651317c025f3c63c78192c51"
 						}
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTEzMDI5NDE1NmIyZDQ3NGY4MjQ5YzAiLCJpYXQiOjE2OTU3NTIxMjUsImV4cCI6MTY5NTc1MzkyNX0.Bi92V7b5oqN7uHH660VACzlo6yedCC4xoLlVgSEevL8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
