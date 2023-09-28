@@ -60,6 +60,92 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Refresh Access Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "refresh-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE1OWYyODdkMWY3NTA1YWE0YTMyM2MiLCJpYXQiOjE2OTU5MjUyNTAsImV4cCI6MTY5NjUzMDA1MH0.WuBedZhst5NfpoA2WOysaWs9l6Qi_VAVwcE2C7yltJc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/auth/refresh-token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE1OWYyODdkMWY3NTA1YWE0YTMyM2MiLCJpYXQiOjE2OTU5MjQ4NzQsImV4cCI6MTY5NTkyNDg5NH0.Y1EbIIPVHig3ILSCwBu9NTw-rE8RhKFDrt9lWgqOWFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "refresh-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE1OWYyODdkMWY3NTA1YWE0YTMyM2MiLCJpYXQiOjE2OTU5MjQ3MDAsImV4cCI6MTY5NjUyOTUwMH0.HtK2P_-TcXADyFhMEg0i06H6TbitUR1wM7Q1YHeRyhs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/auth/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout All",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE1OWYyODdkMWY3NTA1YWE0YTMyM2MiLCJpYXQiOjE2OTU5MjQ2MjYsImV4cCI6MTY5NTkyNDY0Nn0.j1pzTjoPJ7_x2f1-nCByD3QxW-y3NvumOnA0oocEldQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/auth/logout-all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"logout-all"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -48,7 +48,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "65131762a2db4c8548c29537"
+							"value": "65159fb57d1f7505aa4a324e"
 						}
 					]
 				}
@@ -62,7 +62,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Second Post\",\r\n    \"body\": \"Lorem Ipsum Sin Dolor\"\r\n}",
+					"raw": "{\r\n    \"title\": \"1\",\r\n    \"body\": \"Lorem Ipsum Sin Dolor\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -203,7 +203,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTEzMDI5NDE1NmIyZDQ3NGY4MjQ5YzAiLCJpYXQiOjE2OTU3NTIxMjUsImV4cCI6MTY5NTc1MzkyNX0.Bi92V7b5oqN7uHH660VACzlo6yedCC4xoLlVgSEevL8",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE1OWYyODdkMWY3NTA1YWE0YTMyM2MiLCJpYXQiOjE2OTU5MjQ4NTcsImV4cCI6MTY5NTkyNDg3N30.cWjCiDhmeL36BwfGnD9k-7KWshHCX4FItj7UUY5L5cE",
 				"type": "string"
 			}
 		]

@@ -1,49 +1,42 @@
 {
 	"info": {
-		"_postman_id": "3a3c67ec-c050-4b39-9046-2e5ac1b6a6ac",
-		"name": "Though Exchange - Comments",
+		"_postman_id": "b2275ee7-220f-473a-a610-0d7a1c127d86",
+		"name": "Thought Exchange - Users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26024692",
-		"_collection_link": "https://cloudy-meteor-558329.postman.co/workspace/gen11-elective~9b3f7232-cf1f-49da-8022-412a311e23e6/collection/15639951-3a3c67ec-c050-4b39-9046-2e5ac1b6a6ac?action=share&creator=26024692&source=collection_link"
+		"_collection_link": "https://cloudy-meteor-558329.postman.co/workspace/gen11-elective~9b3f7232-cf1f-49da-8022-412a311e23e6/collection/15639951-b2275ee7-220f-473a-a610-0d7a1c127d86?action=share&creator=26024692&source=collection_link"
 	},
 	"item": [
 		{
-			"name": "Get All Comments",
+			"name": "Get Posts By User",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/comments",
+					"raw": "{{url}}/user/posts",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"comments"
+						"user",
+						"posts"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Create Comment",
+			"name": "Get Comments By User",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"body\": \"This is the best post i've read\",\r\n    \"post\": \"65131762a2db4c8548c29537\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{url}}/comments",
+					"raw": "{{url}}/user/comments",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"user",
 						"comments"
 					]
 				}
