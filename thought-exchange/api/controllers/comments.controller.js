@@ -1,17 +1,17 @@
 import { CommentsService } from "../services/comments.service.js";
 
 export class CommentsController {
-  static async getAllComments(req, res) {
+  static async getAllComments(req, res, next) {
     try {
       const comments = await CommentsService.getAllComments();
 
       res.status(200).send(comments);
     } catch (error) {
-      res.status(500).send({ msg: error });
+      next(error);
     }
   }
 
-  static async createComment(req, res) {
+  static async createComment(req, res, next) {
     try {
       const commentData = req.body;
       const user = req.user;
@@ -26,7 +26,7 @@ export class CommentsController {
         comment: createdComment,
       });
     } catch (error) {
-      res.status(400).send({ msg: error });
+      next(error);
     }
   }
 }

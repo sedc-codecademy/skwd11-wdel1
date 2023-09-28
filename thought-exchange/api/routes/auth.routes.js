@@ -4,6 +4,7 @@ import {
   entityValidator,
   userSchema,
 } from "../middlewares/entity-validator.middleware.js";
+import { authValidator } from "../middlewares/auth.middleware.js";
 
 export const authRouter = Router();
 
@@ -15,5 +16,9 @@ authRouter.post(
   entityValidator(userSchema),
   AuthController.registerUser
 );
-// 3. Log out user `POST /auth/logout`
 // 4. Refresh Token `POST /auth/refresh-token`
+authRouter.post("/refresh-token", AuthController.refreshAccessToken);
+// 4. Log out user `POST /auth/logout`
+authRouter.post("/logout", authValidator, AuthController.logoutUser);
+// 5. Log out all `POST /auth/logout-all`
+authRouter.post("/logout-all", authValidator, AuthController.logoutAll);
