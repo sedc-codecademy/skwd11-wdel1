@@ -29,4 +29,10 @@
 
 ## Angular / FE documentation
 
-### TBA..
+### Class05
+
+**Get familiar with the Angular documentation, it's amazing!**
+
+- [Introduction to Angular](https://angular.io/docs)
+- [Angular routing overview](https://angular.io/guide/routing-overview)
+- [Binding in Angular](https://angular.io/guide/binding-syntax)
