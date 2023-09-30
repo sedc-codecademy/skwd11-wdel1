@@ -1,10 +1,5 @@
 import { Forbidden } from "../const/error.const.js";
-import {
-  createAccessToken,
-  createRefreshToken,
-  verifyRefreshToken,
-} from "../const/jwt.const.js";
-import { User } from "../models/user.model.js";
+import { createAccessToken, createRefreshToken } from "../const/jwt.const.js";
 import { AuthService } from "../services/auth.service.js";
 
 export class AuthController {

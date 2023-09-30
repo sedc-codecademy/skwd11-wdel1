@@ -1,14 +1,5 @@
 import mongoose from "mongoose";
 
-// {
-//     title: string;
-//     body: string;
-//     likes: number;
-//     dislikes: number;
-//     author: userId;
-//     comments: commentId[];
-// }
-
 const { Schema } = mongoose;
 
 const postSchema = new Schema(
