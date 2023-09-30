@@ -5,7 +5,9 @@ export class PostsService {
   // 1. Get all posts
   static async getAllPosts() {
     try {
-      const posts = await Post.find({}).populate("author", "username");
+      const posts = await Post.find({}).populate("author", "username").sort({
+        createdAt: "desc",
+      });
 
       return posts;
     } catch (error) {

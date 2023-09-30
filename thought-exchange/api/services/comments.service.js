@@ -6,7 +6,9 @@ export class CommentsService {
   // 1. Get all comments
   static async getAllComments() {
     try {
-      const comments = await Comment.find({});
+      const comments = await Comment.find({}).sort({
+        createdAt: "desc",
+      });
 
       return comments;
     } catch (error) {
