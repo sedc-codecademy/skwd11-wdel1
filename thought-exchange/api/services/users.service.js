@@ -4,7 +4,18 @@ export class UsersService {
   // 1. Get posts by user
   static async getPostsByUser(user) {
     try {
-      const posts = (await user.populate("posts")).posts;
+      const posts = (
+        await user.populate({
+          path: "posts",
+          options: {
+            sort: [
+              {
+                createdAt: "desc",
+              },
+            ],
+          },
+        })
+      ).posts;
 
       return posts;
     } catch (error) {

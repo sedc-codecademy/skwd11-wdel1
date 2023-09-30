@@ -1,0 +1,9 @@
+<section class="container">
+  <div class="container-heading">
+    <h2>Posts</h2>
+  </div>
+  <div class="posts-container">
+    <app-post *ngFor="let title of posts" [title]="title + '23123123'" />
+    <app-post title="This is custom sixth post" />
+  </div>
+</section>

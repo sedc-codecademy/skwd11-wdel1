@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+@use "./assets/scss/variables" as var;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
+  width: 100%;
+  padding: 20px 0px;
+  background-color: var.$black;
+  min-height: 1000px;
+}
+
+.container {
+  padding: 30px;
+  padding-top: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-heading {
+    color: white;
+    text-align: center;
+    margin-top: 0;
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+  width: 70%;
+}
+
+.form-container {
+  width: 450px;
+  border-radius: 10px;
+  padding: 30px 40px;
+  background-color: var.$dark-blue;
+  color: black;
+  box-shadow: var.$box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .form-group {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 30px;
+
+    label {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .ng-invalid.ng-touched {
+      border: 2px solid rgb(133, 0, 0);
+    }
+
+    .form-control {
+      font-size: 1.3rem;
+      border-radius: 6px;
+      color: white;
+      border: none;
+      padding: 12px;
+      background-color: var.$black-two;
+
+      &::placeholder {
+        font-size: 1.2rem;
+        padding: 5px;
+        color: rgba(255, 255, 255, 0.459);
+
+        font-style: italic;
+      }
+
+      &:focus {
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .form-error {
+    color: var.$dark-red;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+
+  button {
+    font-size: 1.4rem;
+    padding: 10px;
+    padding-bottom: 13px;
+    width: 100%;
+    background-color: var.$dark-red;
+    color: var.$black;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    font-weight: 500;
+    margin: 20px 0px;
+
+    &:hover {
+      background-color: var.$light-red;
+    }
+
+    &:disabled {
+      background-color: rgb(117, 117, 117);
+    }
+  }
+}
+
+.ngx-toastr {
+  text-align: center;
+  font-size: 16px;
+}
+
+.toast-success {
+  background-color: #186f47 !important;
+  box-shadow: var.$box-shadow !important;
+}
+
+.toast-error {
+  background-color: var.$dark-red !important;
+  box-shadow: var.$box-shadow !important;
+}
+
+@media (min-height: 1000px) {
+  main {
+    min-height: 1200px;
+  }
+}

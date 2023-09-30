@@ -1,0 +1,48 @@
+@use "../../../../assets/scss/variables" as var;
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50%;
+  width: 100%;
+  color: white;
+  font-weight: 900;
+  margin-top: 200px;
+}
+
+.heading-one {
+  background-color: var.$light-red;
+  padding: 10px 50px;
+  font-size: 7vw;
+  animation: slidein 1s;
+  //   color: var.$black;
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: -3200px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+.heading-two {
+  font-size: 5.3vw;
+  //   text-shadow: 0.4rem 0.4rem #31022c;
+  width: 80%;
+  animation: reveal 3s;
+  color: var.$light-blue;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
