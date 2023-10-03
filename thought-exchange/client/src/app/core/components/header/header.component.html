@@ -5,8 +5,27 @@
   </div>
   <nav class="nav">
     <div class="nav-link" routerLink="/">Home</div>
-    <div class="nav-link" routerLink="/login">Login</div>
-    <div class="nav-link" routerLink="/register">Register</div>
-    <div class="nav-link" routerLink="/posts">Posts</div>
+
+    <ng-container *ngIf="!currentUser">
+      <div class="nav-link" routerLink="/login">Login</div>
+      <div class="nav-link" routerLink="/register">Register</div>
+    </ng-container>
+
+    <ng-container *ngIf="currentUser">
+      <div class="nav-link" routerLink="/posts">Posts</div>
+      <div class="nav-link" routerLink="/posts/create">Create Post</div>
+      <div class="user-badge" (click)="onToggleDropdown()">I</div>
+      <div class="dropdown" *ngIf="isDropdownOpen">
+        <div class="username dropdown-item">
+          <i class="fa fa-user"> </i>
+          {{ currentUser }}
+        </div>
+        <div class="dropdown-item" routerLink="/posts/user">My Posts</div>
+        <div class="dropdown-item" routerLink="/posts/comments">
+          My Comments
+        </div>
+        <div class="dropdown-item" (click)="onLogout()">Logout</div>
+      </div>
+    </ng-container>
   </nav>
 </header>

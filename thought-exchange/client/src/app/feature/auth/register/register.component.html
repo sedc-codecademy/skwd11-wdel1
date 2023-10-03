@@ -16,6 +16,15 @@
         autocomplete="off"
         formControlName="username"
       />
+      <p
+        *ngIf="
+          registerForm.controls.username.invalid &&
+          registerForm.controls.username.touched
+        "
+        class="form-error"
+      >
+        Invalid Username
+      </p>
     </div>
     <div class="form-group">
       <label for="register-email">Email</label>
@@ -26,6 +35,15 @@
         autocomplete="off"
         formControlName="email"
       />
+      <p
+        *ngIf="
+          registerForm.controls.email.invalid &&
+          registerForm.controls.email.touched
+        "
+        class="form-error"
+      >
+        Invalid Email
+      </p>
     </div>
     <div class="form-group">
       <label for="register-password">Password</label>
@@ -36,6 +54,15 @@
         autocomplete="off"
         formControlName="password"
       />
+      <p
+        *ngIf="
+          registerForm.controls.password.invalid &&
+          registerForm.controls.password.touched
+        "
+        class="form-error"
+      >
+        Invalid Password
+      </p>
     </div>
     <div class="form-group">
       <label for="register-confirm-password">Confirm Password</label>
@@ -46,6 +73,9 @@
         autocomplete="off"
         formControlName="confirmPassword"
       />
+      <p class="form-error" *ngIf="registerForm.errors?.passwordMismatch">
+        Password must match
+      </p>
     </div>
     <button type="submit" [disabled]="registerForm.invalid">Register</button>
   </form>

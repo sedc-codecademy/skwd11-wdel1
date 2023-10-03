@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostComponent } from '../post/post.component';
-import { PostsService } from 'src/app/core/posts.service';
+import { PostsService } from 'src/app/core/services/posts.service';
 import { Post } from 'src/app/core/models/post.model';
 
 @Component({

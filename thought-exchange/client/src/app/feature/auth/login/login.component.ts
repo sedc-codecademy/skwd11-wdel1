@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  private authService = inject(AuthService);
+
   loginForm: FormGroup;
 
   ngOnInit(): void {
@@ -31,9 +34,11 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log(this.loginForm.value);
-    console.log(this.loginForm.valid);
-
     console.log('form submitted');
+    if (this.loginForm.invalid) return;
+
+    const { email, password } = this.loginForm.value;
+
+    this.authService.loginUser(email, password);
   }
 }
