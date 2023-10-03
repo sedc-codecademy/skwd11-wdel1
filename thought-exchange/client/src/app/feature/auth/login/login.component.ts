@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
 
   onFormSubmit() {
     console.log('form submitted');
-    if (this.loginForm.invalid) return;
 
     const { email, password } = this.loginForm.value;
 

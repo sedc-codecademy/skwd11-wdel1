@@ -1,4 +1,4 @@
-<div class="post">
+<div class="post post-hover">
   <div class="post-heading">
     <h3>{{ post.title }}</h3>
     <span class="likes-display">
@@ -18,7 +18,7 @@
   <div class="post-footer">
     <span>
       <i class="fa fa-user-circle"></i> {{ post.author.username }} on
-      <span>{{ post.createdAt }}</span>
+      <span>{{ post.createdAt | date }}</span>
     </span>
     <div class="comments">
       <span>Comments: {{ post.comments.length }}</span>

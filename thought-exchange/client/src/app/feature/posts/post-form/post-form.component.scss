@@ -1,0 +1,23 @@
+.form-container {
+  width: 60%;
+
+  .controls {
+    display: flex;
+    align-self: flex-end;
+    width: 40%;
+
+    button {
+      margin-left: 10px;
+      width: 100%;
+    }
+  }
+
+  .form-group {
+    width: 100%;
+
+    textarea {
+      font-family: inherit;
+      resize: none;
+    }
+  }
+}
