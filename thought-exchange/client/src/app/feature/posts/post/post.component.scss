@@ -1,0 +1,104 @@
+@use "../../../../assets/scss/variables" as var;
+
+.post {
+  padding: 30px 40px;
+  background-color: var.$black-two;
+  margin: 15px;
+  border-radius: 10px;
+  color: var.$black;
+  color: white;
+
+  box-shadow: var.$box-shadow;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &-heading {
+    display: flex;
+    justify-content: space-between;
+    color: var.$light-blue;
+    font-size: 1.3rem;
+
+    .likes-display {
+      color: white;
+      span {
+        margin: 0 5px;
+        padding: 4px 8px;
+        font-size: 1.1rem;
+        border-radius: 6px;
+        background-color: var.$dark-blue;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.1s ease-in;
+
+        border: 2px solid var.$dark-blue;
+        .fa-thumbs-up {
+          color: #48ad7e;
+        }
+
+        .fa-thumbs-down {
+          color: var.$light-red;
+        }
+
+        &:hover {
+          border: 2px solid white;
+        }
+      }
+    }
+  }
+  &-body {
+    padding: 20px 0;
+    margin: 20px 0;
+    border-top: 2px solid var.$dark-blue;
+    border-bottom: 2px solid var.$dark-blue;
+  }
+
+  &-footer {
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none;
+    color: var.$light-blue;
+
+    .comments {
+      display: flex;
+
+      .edit-link {
+        padding-right: 10px;
+
+        color: #48ad7e;
+        cursor: pointer;
+
+        &:hover {
+          color: #227b52;
+        }
+      }
+
+      .delete-link {
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 2px solid lightgray;
+
+        color: var.$light-red;
+        cursor: pointer;
+
+        &:hover {
+          color: var.$dark-red;
+        }
+      }
+
+      i {
+        margin-left: 5px;
+
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+.post-hover:hover {
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.22);
+    scale: 1.01;
+  }
+}

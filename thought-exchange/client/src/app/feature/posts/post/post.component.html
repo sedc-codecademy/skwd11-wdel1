@@ -1,1 +1,27 @@
-<h2>Post Title: {{ title }}</h2>
+<div class="post">
+  <div class="post-heading">
+    <h3>{{ post.title }}</h3>
+    <span class="likes-display">
+      <span>
+        <i class="fa-solid fa-thumbs-up"></i>
+        {{ post.likes }}
+      </span>
+      <span>
+        <i class="fa-solid fa-thumbs-down"></i>
+        {{ post.dislikes }}
+      </span>
+    </span>
+  </div>
+  <div class="post-body">
+    {{ post.body }}
+  </div>
+  <div class="post-footer">
+    <span>
+      <i class="fa fa-user-circle"></i> {{ post.author.username }} on
+      <span>{{ post.createdAt }}</span>
+    </span>
+    <div class="comments">
+      <span>Comments: {{ post.comments.length }}</span>
+    </div>
+  </div>
+</div>
