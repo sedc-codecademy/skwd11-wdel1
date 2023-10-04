@@ -36,3 +36,9 @@
 - [Introduction to Angular](https://angular.io/docs)
 - [Angular routing overview](https://angular.io/guide/routing-overview)
 - [Binding in Angular](https://angular.io/guide/binding-syntax)
+
+### Class06
+
+- [Intro to RxJS](https://www.learnrxjs.io/)
+- [Observables in Angular](https://blog.angular-university.io/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/)
+- [Services in Angular](https://angular.io/guide/architecture-services)
