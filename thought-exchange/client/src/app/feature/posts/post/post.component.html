@@ -1,4 +1,8 @@
-<div class="post post-hover">
+<div
+  class="post"
+  [ngClass]="{ 'post-hover': isHoverShadow }"
+  (click)="onPostClick()"
+>
   <div class="post-heading">
     <h3>{{ post.title }}</h3>
     <span class="likes-display">
@@ -17,10 +21,18 @@
   </div>
   <div class="post-footer">
     <span>
-      <i class="fa fa-user-circle"></i> {{ post.author.username }} on
+      <i class="fa fa-user-circle"></i> {{ post?.author?.username }} on
       <span>{{ post.createdAt | date }}</span>
     </span>
     <div class="comments">
+      <ng-container *ngIf="isEditAllowed">
+        <span class="edit-link">
+          Edit <i class="fa-solid fa-pen-to-square"></i>
+        </span>
+        <span class="delete-link">
+          Delete <i class="fa-solid fa-trash-can"></i>
+        </span>
+      </ng-container>
       <span>Comments: {{ post.comments.length }}</span>
     </div>
   </div>

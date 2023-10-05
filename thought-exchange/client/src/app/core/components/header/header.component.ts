@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -13,13 +14,11 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
   private authService = inject(AuthService);
 
-  currentUser: string;
+  currentUser: User;
   isDropdownOpen = false;
 
   ngOnInit() {
     this.authService.currentUser$.subscribe((value) => {
-      console.log('Event fired');
-      console.log(`Event Value: ${value}`);
       this.currentUser = value;
     });
   }

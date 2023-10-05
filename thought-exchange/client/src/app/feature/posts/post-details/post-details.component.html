@@ -1,0 +1,13 @@
+<section class="container">
+  <div class="container-heading">
+    <h2>Post Details</h2>
+  </div>
+  <div class="posts-container" *ngIf="postDetails$ | async as postDetails">
+    <!-- Post component -->
+    <app-post [post]="postDetails" [isHoverShadow]="false" />
+    <!-- Comment form component -->
+    <app-comment-form />
+    <!-- Comment list component -->
+    <app-comments-list [comments]="postDetails.comments" />
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<form
+  class="form-container"
+  [formGroup]="commentForm"
+  (ngSubmit)="onFormSubmit()"
+>
+  <div class="form-group">
+    <label for="comment-body">Add Comment</label
+    ><textarea
+      id="comment-body"
+      rows="3"
+      class="form-control"
+      formControlName="body"
+    ></textarea>
+  </div>
+  <button type="submit" [disabled]="commentForm.invalid">Add</button>
+</form>

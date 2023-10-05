@@ -22,8 +22,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-
-    console.log(this.loginForm);
   }
 
   initForm() {
@@ -34,8 +32,6 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log('form submitted');
-
     const { email, password } = this.loginForm.value;
 
     this.authService.loginUser(email, password);

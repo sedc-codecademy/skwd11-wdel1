@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Post } from 'src/app/core/models/post.model';
+import { Post, PostDetails } from 'src/app/core/models/post.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -10,15 +11,15 @@ import { Post } from 'src/app/core/models/post.model';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent {
-  @Input() post: Post;
+  private router = inject(Router);
 
-  constructor() {
-    console.log('Constructor');
-    console.log(this.post);
-  }
+  @Input() post: Post | PostDetails;
+  @Input() isHoverShadow = true;
+  @Input() isEditAllowed = false;
 
-  ngOnInit() {
-    console.log('On Init');
-    console.log(this.post);
+  ngOnInit() {}
+
+  onPostClick() {
+    this.router.navigate(['posts', this.post._id]);
   }
 }

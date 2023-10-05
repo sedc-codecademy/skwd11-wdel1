@@ -1,0 +1,68 @@
+@use "../../../../assets/scss/variables" as var;
+
+.comment-container {
+  color: white;
+  padding: 30px 40px;
+  background-color: var.$black-two;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: var.$box-shadow;
+  h3 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+}
+
+.user-comments {
+  width: 60%;
+  h3 {
+    font-size: 2.3rem;
+  }
+  margin: 30px auto;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
+  margin: 25px 0px;
+  padding: 15px;
+  background-color: #122538;
+  border-bottom: 3px solid var.$black;
+
+  &-body {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  &-author {
+    align-self: flex-end;
+    color: var.$light-blue;
+    .user-icon {
+      padding-right: 10px;
+      margin-right: 10px;
+
+      border-right: 2px solid var.$light-blue;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .post-link {
+    font-weight: 600;
+    border-right: 2px solid var.$light-blue;
+    padding-right: 10px;
+    margin-right: 10px;
+
+    color: var.$light-red;
+    cursor: pointer;
+
+    &:hover {
+      color: var.$dark-red;
+    }
+  }
+}

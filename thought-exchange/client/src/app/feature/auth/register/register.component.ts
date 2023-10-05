@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -6,6 +6,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { RegisterUserReq } from 'src/app/core/models/user.model';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +17,8 @@ import {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  private authService = inject(AuthService);
+
   registerForm: FormGroup;
 
   ngOnInit() {
@@ -61,6 +65,10 @@ export class RegisterComponent {
   onFormSubmit() {
     console.log('Form group', this.registerForm);
 
-    console.log(this.registerForm.value);
+    delete this.registerForm.value.confirmPassword;
+
+    const reqBody: RegisterUserReq = this.registerForm.value;
+
+    this.authService.registerUser(reqBody);
   }
 }

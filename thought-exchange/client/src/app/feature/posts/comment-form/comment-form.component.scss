@@ -1,0 +1,26 @@
+.form-container {
+  width: inherit;
+  margin: 15px;
+
+  label {
+    font-size: 1.2rem;
+  }
+  .form-group {
+    width: 100%;
+    padding-bottom: 0;
+
+    textarea {
+      margin-top: 20px;
+      font-family: inherit;
+      resize: none;
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 1rem;
+    align-self: flex-end;
+    width: 100px;
+  }
+}

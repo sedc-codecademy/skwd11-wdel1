@@ -43,12 +43,12 @@
         Create Post
       </div>
       <div class="user-badge" (click)="onToggleDropdown()">
-        {{ currentUser[0] | uppercase }}
+        {{ currentUser.username[0] | uppercase }}
       </div>
-      <div class="dropdown" *ngIf="isDropdownOpen">
+      <div class="dropdown" *ngIf="isDropdownOpen" (click)="onToggleDropdown()">
         <div class="username dropdown-item">
           <i class="fa fa-user"> </i>
-          {{ currentUser }}
+          {{ currentUser.username }}
         </div>
         <div
           class="dropdown-item"
@@ -59,7 +59,7 @@
         </div>
         <div
           class="dropdown-item"
-          routerLink="/posts/comments"
+          routerLink="/posts/user/comments"
           routerLinkActive="active"
         >
           My Comments
