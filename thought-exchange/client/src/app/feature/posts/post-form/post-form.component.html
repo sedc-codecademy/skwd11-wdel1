@@ -1,6 +1,6 @@
 <section class="container">
   <div class="container-heading">
-    <h2>Create Post</h2>
+    <h2>{{ editPostData._id ? "Edit" : "Create" }} Post</h2>
   </div>
   <form
     [formGroup]="postForm"
@@ -28,8 +28,10 @@
       ></textarea>
     </div>
     <div class="controls">
-      <button type="button">Back</button>
-      <button type="submit" [disabled]="postForm.invalid">Add</button>
+      <button type="button" (click)="goBack()">Back</button>
+      <button type="submit" [disabled]="postForm.invalid">
+        {{ editPostData._id ? "Update" : "Add" }}
+      </button>
     </div>
   </form>
 </section>

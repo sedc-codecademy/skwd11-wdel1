@@ -24,13 +24,16 @@ export class PostListComponent implements OnInit {
 
   posts$ = this.postsService.posts$;
 
+  isEditAllowed = false;
+
   ngOnInit() {
     if (this.route.snapshot.routeConfig.path === 'posts/user') {
       this.currentUser = this.authService.currentUser$.value;
+      this.isEditAllowed = true;
     }
 
     if (this.currentUser) {
-      // this.posts = this.postsService.getUserPosts();
+      this.postsService.getUserPosts();
     } else {
       this.postsService.getPosts();
     }

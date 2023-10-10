@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { API_URL } from '../../constants/core.constants';
-import { map } from 'rxjs';
-import { RegisterUserReq, User } from '../../models/user.model';
+import { RegisterUserReq } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root',

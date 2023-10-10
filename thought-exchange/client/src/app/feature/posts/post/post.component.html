@@ -5,12 +5,17 @@
 >
   <div class="post-heading">
     <h3>{{ post.title }}</h3>
-    <span class="likes-display">
-      <span>
+    <span
+      class="likes-display"
+      [ngClass]="
+        currentUser._id === post.author?._id && 'disabled-likes-display'
+      "
+    >
+      <span (click)="onPostLike($event)">
         <i class="fa-solid fa-thumbs-up"></i>
         {{ post.likes }}
       </span>
-      <span>
+      <span (click)="onPostDislike($event)">
         <i class="fa-solid fa-thumbs-down"></i>
         {{ post.dislikes }}
       </span>
@@ -26,7 +31,7 @@
     </span>
     <div class="comments">
       <ng-container *ngIf="isEditAllowed">
-        <span class="edit-link">
+        <span class="edit-link" (click)="onPostEdit($event)">
           Edit <i class="fa-solid fa-pen-to-square"></i>
         </span>
         <span class="delete-link">

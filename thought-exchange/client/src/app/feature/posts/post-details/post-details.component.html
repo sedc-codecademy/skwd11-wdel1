@@ -6,7 +6,7 @@
     <!-- Post component -->
     <app-post [post]="postDetails" [isHoverShadow]="false" />
     <!-- Comment form component -->
-    <app-comment-form />
+    <app-comment-form (formOutput)="onCommentSubmit($event)" />
     <!-- Comment list component -->
     <app-comments-list [comments]="postDetails.comments" />
   </div>

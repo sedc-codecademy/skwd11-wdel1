@@ -10,7 +10,7 @@ export class AuthController {
 
       await AuthService.registerUser(userData);
 
-      return res.sendStatus(200);
+      return res.sendStatus(204);
     } catch (error) {
       return next(error);
     }

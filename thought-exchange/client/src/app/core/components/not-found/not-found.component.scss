@@ -1,0 +1,15 @@
+@use "../../../../assets/scss/variables" as var;
+
+.container {
+  margin-top: 250px;
+}
+
+h2 {
+  color: var.$light-red;
+  font-size: 60px;
+}
+
+h3 {
+  color: var.$light-blue;
+  font-size: 30px;
+}

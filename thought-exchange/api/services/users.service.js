@@ -7,12 +7,12 @@ export class UsersService {
       const posts = (
         await user.populate({
           path: "posts",
+          populate: {
+            path: "author",
+            select: "username",
+          },
           options: {
-            sort: [
-              {
-                createdAt: "desc",
-              },
-            ],
+            sort: [{ createdAt: "desc" }],
           },
         })
       ).posts;
@@ -26,7 +26,18 @@ export class UsersService {
   // 2. Get comments by user
   static async getCommentsByUser(user) {
     try {
-      const comments = (await user.populate("comments")).comments;
+      const comments = (
+        await user.populate({
+          path: "comments",
+          populate: {
+            path: "author",
+            select: "username",
+          },
+          options: {
+            sort: [{ createdAt: "desc" }],
+          },
+        })
+      ).comments;
 
       return comments;
     } catch (error) {

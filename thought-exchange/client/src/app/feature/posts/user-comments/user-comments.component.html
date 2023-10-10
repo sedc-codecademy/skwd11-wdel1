@@ -2,7 +2,7 @@
   <div class="container-heading">
     <h2>{{ currentUser.username }}'s comments</h2>
   </div>
-  <div class="posts-container">
+  <div class="posts-container" *ngIf="userComments$ | async as comments">
     <app-comments-list [comments]="comments" [showPostLink]="true" />
   </div>
 </section>

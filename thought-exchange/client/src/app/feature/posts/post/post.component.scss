@@ -43,6 +43,20 @@
         }
       }
     }
+
+    .disabled-likes-display {
+      span {
+        pointer-events: none;
+        cursor: not-allowed;
+        .fa-thumbs-up {
+          color: lightgray;
+        }
+
+        .fa-thumbs-down {
+          color: lightgray;
+        }
+      }
+    }
   }
   &-body {
     padding: 20px 0;

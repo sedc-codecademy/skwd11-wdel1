@@ -31,4 +31,11 @@ export class PostDetailsComponent implements OnInit {
     // Fetch post details from backend and change value of post details
     this.postsService.getPostDetails(postId);
   }
+
+  onCommentSubmit(body: string) {
+    console.log('comment submitted in parent');
+    console.log(`This is the body: ${body}`);
+
+    this.postsService.createComment(body);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -16,9 +16,9 @@ import { PostsService } from 'src/app/core/services/posts.service';
   styleUrls: ['./comment-form.component.scss'],
 })
 export class CommentFormComponent implements OnInit {
-  private postsService = inject(PostsService);
-
   commentForm: FormGroup;
+
+  @Output() formOutput = new EventEmitter<string>();
 
   ngOnInit(): void {
     this.initForm();
@@ -35,6 +35,10 @@ export class CommentFormComponent implements OnInit {
   }
 
   onFormSubmit() {
-    // Call service to create comment in backend
+    const { body } = this.commentForm.value;
+
+    this.commentForm.reset();
+
+    this.formOutput.emit(body);
   }
 }

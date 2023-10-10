@@ -4,6 +4,7 @@ import { PostComment } from 'src/app/core/models/comment.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { User } from 'src/app/core/models/user.model';
 import { CommentsListComponent } from '../comments-list/comments-list.component';
+import { PostsService } from 'src/app/core/services/posts.service';
 
 @Component({
   selector: 'app-user-comments',
@@ -14,48 +15,14 @@ import { CommentsListComponent } from '../comments-list/comments-list.component'
 })
 export class UserCommentsComponent implements OnInit {
   private authService = inject(AuthService);
+  private postsService = inject(PostsService);
+
+  userComments$ = this.postsService.userComments$;
 
   currentUser: User;
-  comments: PostComment[] = [
-    {
-      _id: '65159fda7d1f7505aa4a3257',
-      body: 'I made this post',
-      author: {
-        _id: '65159f287d1f7505aa4a323c',
-        username: 'firstuser',
-      },
-      post: '65159f7e7d1f7505aa4a3244',
-      createdAt: '2023-09-28T15:46:34.833Z',
-      updatedAt: '2023-09-28T15:46:34.833Z',
-      __v: 0,
-    },
-    {
-      _id: '65159fe07d1f7505aa4a3261',
-      body: "Please don't hate",
-      author: {
-        _id: '65159f287d1f7505aa4a323c',
-        username: 'firstuser',
-      },
-      post: '65159f7e7d1f7505aa4a3244',
-      createdAt: '2023-09-28T15:46:40.693Z',
-      updatedAt: '2023-09-28T15:46:40.693Z',
-      __v: 0,
-    },
-    {
-      _id: '65159fe77d1f7505aa4a326b',
-      body: 'I will block all of you',
-      author: {
-        _id: '65159f287d1f7505aa4a323c',
-        username: 'firstuser',
-      },
-      post: '65159f7e7d1f7505aa4a3244',
-      createdAt: '2023-09-28T15:46:47.541Z',
-      updatedAt: '2023-09-28T15:46:47.541Z',
-      __v: 0,
-    },
-  ];
 
   ngOnInit(): void {
     this.currentUser = this.authService.currentUser$.value;
+    this.postsService.getUserComments();
   }
 }

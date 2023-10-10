@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { PostsService } from 'src/app/core/services/posts.service';
+import { Post } from 'src/app/core/models/post.model';
 
 @Component({
   selector: 'app-post-form',
@@ -15,7 +17,12 @@ import {
   styleUrls: ['./post-form.component.scss'],
 })
 export class PostFormComponent implements OnInit {
+  private postsService = inject(PostsService);
+  private location = inject(Location);
+
   postForm: FormGroup;
+
+  editPostData = window.history.state as Post;
 
   ngOnInit() {
     this.initForm();
@@ -23,11 +30,11 @@ export class PostFormComponent implements OnInit {
 
   initForm() {
     this.postForm = new FormGroup({
-      title: new FormControl('', [
+      title: new FormControl(this.editPostData?.title ?? '', [
         Validators.required,
         Validators.minLength(6),
       ]),
-      body: new FormControl('', [
+      body: new FormControl(this.editPostData?.body ?? '', [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(240),
@@ -40,6 +47,14 @@ export class PostFormComponent implements OnInit {
 
     console.log(title, body);
 
-    // Call service with data to create post in database
+    if (this.editPostData._id) {
+      this.postsService.updatePost(this.editPostData._id, title, body);
+    } else {
+      this.postsService.createPost(title, body);
+    }
+  }
+
+  goBack() {
+    this.location.back();
   }
 }
