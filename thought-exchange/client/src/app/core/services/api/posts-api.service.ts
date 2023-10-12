@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { API_URL } from '../../constants/core.constants';
+import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
 import { Post, PostDetails } from '../../models/post.model';
 import { PostComment } from '../../models/comment.model';
 
+const API_URL = environment.API_URL;
 @Injectable({
   providedIn: 'root',
 })
@@ -59,5 +60,9 @@ export class PostsApiService {
 
   updatePost(postId: string, title: string, body: string) {
     return this.http.patch(`${API_URL}/posts/${postId}`, { title, body });
+  }
+
+  deletePost(postId: string) {
+    return this.http.delete(`${API_URL}/posts/${postId}`);
   }
 }

@@ -1,11 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './core/components/home/home.component';
-import { LoginComponent } from './feature/auth/login/login.component';
-import { PostListComponent } from './feature/posts/post-list/post-list.component';
-import { RegisterComponent } from './feature/auth/register/register.component';
-import { PostFormComponent } from './feature/posts/post-form/post-form.component';
-import { PostDetailsComponent } from './feature/posts/post-details/post-details.component';
-import { UserCommentsComponent } from './feature/posts/user-comments/user-comments.component';
 import { authGuard, loginGuard } from './core/guards';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 
@@ -16,42 +10,66 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    loadComponent: () =>
+      import('./feature/auth/login/login.component').then(
+        (c) => c.LoginComponent
+      ),
     canActivate: [() => loginGuard()],
   },
   {
     path: 'register',
-    component: RegisterComponent,
+    loadComponent: () =>
+      import('./feature/auth/register/register.component').then(
+        (c) => c.RegisterComponent
+      ),
     canActivate: [() => loginGuard()],
   },
   {
     path: 'posts',
-    component: PostListComponent,
+    loadComponent: () =>
+      import('./feature/posts/post-list/post-list.component').then(
+        (c) => c.PostListComponent
+      ),
     canActivate: [() => authGuard()],
   },
   {
     path: 'posts/create',
-    component: PostFormComponent,
+    loadComponent: () =>
+      import('./feature/posts/post-form/post-form.component').then(
+        (c) => c.PostFormComponent
+      ),
     canActivate: [() => authGuard()],
   },
   {
     path: 'posts/edit',
-    component: PostFormComponent,
+    loadComponent: () =>
+      import('./feature/posts/post-form/post-form.component').then(
+        (c) => c.PostFormComponent
+      ),
     canActivate: [() => authGuard()],
   },
   {
     path: 'posts/user',
-    component: PostListComponent,
+    loadComponent: () =>
+      import('./feature/posts/post-list/post-list.component').then(
+        (c) => c.PostListComponent
+      ),
     canActivate: [() => authGuard()],
   },
   {
     path: 'posts/user/comments',
-    component: UserCommentsComponent,
+    loadComponent: () =>
+      import('./feature/posts/user-comments/user-comments.component').then(
+        (c) => c.UserCommentsComponent
+      ),
     canActivate: [() => authGuard()],
   },
   {
     path: 'posts/:id',
-    component: PostDetailsComponent,
+    loadComponent: () =>
+      import('./feature/posts/post-details/post-details.component').then(
+        (c) => c.PostDetailsComponent
+      ),
     canActivate: [() => authGuard()],
   },
   {

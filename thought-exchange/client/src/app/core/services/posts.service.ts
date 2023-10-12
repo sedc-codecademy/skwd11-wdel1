@@ -157,4 +157,14 @@ export class PostsService {
       error: (err) => this.notificationService.showError(err.error.message),
     });
   }
+
+  deletePost(postId: string) {
+    this.postsApiService.deletePost(postId).subscribe({
+      next: () => {
+        this.notificationService.showSuccess('Post deleted successfully!');
+        this.getUserPosts();
+      },
+      error: (err) => this.notificationService.showError(err.error.message),
+    });
+  }
 }

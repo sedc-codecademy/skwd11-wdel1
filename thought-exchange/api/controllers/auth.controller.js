@@ -61,7 +61,7 @@ export class AuthController {
       res.set("refresh-token", newRefreshToken);
       res.set("access-control-expose-headers", "access-token, refresh-token");
 
-      return res.sendStatus(200);
+      return res.sendStatus(204);
     } catch (error) {
       return next(error);
     }

@@ -52,4 +52,10 @@ export class PostComponent {
 
     this.router.navigate(['posts', 'edit'], { state });
   }
+
+  onPostDelete(e: Event) {
+    e.stopImmediatePropagation();
+
+    this.postService.deletePost(this.post._id);
+  }
 }

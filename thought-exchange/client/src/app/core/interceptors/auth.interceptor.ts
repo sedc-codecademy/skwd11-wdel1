@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable, catchError, switchMap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
@@ -33,6 +33,30 @@ export class AuthInterceptor implements HttpInterceptor {
       },
     });
 
-    return next.handle(clonedRequest);
+    return next.handle(clonedRequest).pipe(
+      catchError((err) => {
+        console.log(err);
+
+        if (err.status === 403 && !err.url.includes('refresh-token')) {
+          console.log('in 403 error block');
+
+          return this.authService.refreshAccessToken().pipe(
+            switchMap((value) => {
+              const clonedRequest = request.clone({
+                setHeaders: {
+                  Authorization: `Bearer ${value.token}`,
+                },
+              });
+
+              return next.handle(clonedRequest);
+            })
+          );
+        }
+
+        this.authService.logoutUserFromClient();
+
+        return EMPTY;
+      })
+    );
   }
 }
