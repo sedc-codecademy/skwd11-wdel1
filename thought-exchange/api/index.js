@@ -5,6 +5,7 @@ import { globalRouter } from "./const/global-router.const.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
 import cors from "cors";
 import helmet from "helmet";
+import { CronJob } from "cron";
 
 const { MONGO_USER, MONGO_PASSWORD, MONGO_CLUSTER, MONGO_DB } = process.env;
 
@@ -22,6 +23,20 @@ app.use(express.json());
 app.use("/api", globalRouter);
 
 app.use(errorHandler);
+
+const renderHackJob = new CronJob(
+  "10 * * * *",
+  () => {
+    fetch(`https://${HOST}:${PORT}/api/posts`).catch(err => {
+      console.log("error fetching posts");
+    });
+  },
+  null,
+  true,
+  null
+);
+
+renderHackJob.start();
 
 app.listen(PORT, HOST, async () => {
   try {
