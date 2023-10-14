@@ -1,3 +1,3 @@
 export const environment = {
-  API_URL: 'http://test-api/test/rest',
+  API_URL: 'https://thought-exchange-gen-11-api.onrender.com/api',
 };
